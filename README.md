@@ -30,8 +30,7 @@ An example of a normal tag is a paragraph:
 Another normal tag is a main section:
 
 ```html
-<main>
-</main>
+<main></main>
 ```
 
 To nest items in a normal tag, we simply add the child node HTML element
@@ -39,9 +38,11 @@ content between its parent's starting and ending tags:
 
 ```html
 <body>
-  <main>
-    <p>I am a nested paragraph, inside the main element, inside the body!</p>
-  </main>
+    <main>
+        <p>
+            I am a nested paragraph, inside the main element, inside the body!
+        </p>
+    </main>
 </body>
 ```
 
@@ -52,13 +53,19 @@ they are called void elements. Void elements cannot be parent nodes.
 An example of a self-closing tag is an image:
 
 ```html
-<img src="https://media.giphy.com/media/3o6MbkZSYy4mI3gLYc/giphy.gif" alt="A policeman">
+<img
+    src="https://media.giphy.com/media/3o6MbkZSYy4mI3gLYc/giphy.gif"
+    alt="A policeman"
+/>
 ```
 
 In self-closing tags, the trailing `/` is optional. This is valid too:
 
 ```html
-<img src="https://media.giphy.com/media/3o6MbkZSYy4mI3gLYc/giphy.gif" alt="A policeman" />
+<img
+    src="https://media.giphy.com/media/3o6MbkZSYy4mI3gLYc/giphy.gif"
+    alt="A policeman"
+/>
 ```
 
 Every HTML element has a `display` value. Since these are known by modern
@@ -66,18 +73,18 @@ browsers, you don't have to worry about specifying the value unless you want to
 change it. This value can be many things (including `none`, which hides the
 elements), but the default value for most elements is either
 [`block`][html-block-elements] or [`inline`][html-inline-elements]. For the
-images above, the value is `inline`. 
+images above, the value is `inline`.
 
 ## Instructions
 
 Enough chit-chat, let's write some HTML!
 
-First, we need a way to view the results of our HTML in a browser. 
+First, we need a way to view the results of our HTML in a browser.
 
 If you're working on your own machine, from the terminal in the directory you're
 working in, run `open index.html` to open up a copy of the file in your browser. Or, run `explorer.exe index.html` if you are using a WSL/Ubuntu local environment.
 
-If you are working in the in-browser IDE, type `httpserver` from the console to 
+If you are working in the in-browser IDE, type `httpserver` from the console to
 start up a temporary web server, and copy the URL provided into the browser's URL
 bar to view `index.html`.
 
@@ -86,15 +93,15 @@ Just to speed things up a bit, paste the following code into `index.html`:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Introduction to the DOM Lab</title>
-</head>
-<body>
-  <!--All our work for this lesson will go here-->
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Introduction to the DOM Lab</title>
+    </head>
+    <body>
+        <!--All our work for this lesson will go here-->
+    </body>
 </html>
 ```
 
@@ -119,12 +126,12 @@ bits of text to the paragraph to make it stand out a little.
 
 ```html
 <p>
-  We're writing HTML markup to display in our <strong>browser</strong>.
-  We're basically telling computers what to do. <em>Neat!</em>
+    We're writing HTML markup to display in our <strong>browser</strong>. We're
+    basically telling computers what to do. <em>Neat!</em>
 </p>
 ```
 
-Save the file and check out the page in the 'Elements' tab.  What's happening
+Save the file and check out the page in the 'Elements' tab. What's happening
 above is that we added some inline elements, `<strong>` and `<em>` to our
 paragraph to style things a little. The `<strong>` tag makes any text within
 look **important**. It's usually bold in browsers by default. The `<em>` tag
@@ -135,7 +142,9 @@ Let's add a link to MDN to define HTML. We'll use the`<a>` tag for this. Add
 this to our existing `<p>`:
 
 ```html
-  We're writing <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a> markup to display in our <strong>browser</strong>.
+We're writing
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a> markup to
+display in our <strong>browser</strong>.
 ```
 
 Notice that HTML attributes are shown alongside their opening tag e.g. the
@@ -146,30 +155,30 @@ this lesson:
 
 ```html
 <table>
-  <thead>
-    <tr>
-      <th>Element name</th>
-      <th>Display value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>h1</td>
-      <td>block</td>
-    </tr>
-    <tr>
-      <td>p</td>
-      <td>block</td>
-    </tr>
-    <tr>
-      <td>strong</td>
-      <td>inline</td>
-    </tr>
-    <tr>
-      <td>em</td>
-      <td>inline</td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>Element name</th>
+            <th>Display value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>h1</td>
+            <td>block</td>
+        </tr>
+        <tr>
+            <td>p</td>
+            <td>block</td>
+        </tr>
+        <tr>
+            <td>strong</td>
+            <td>inline</td>
+        </tr>
+        <tr>
+            <td>em</td>
+            <td>inline</td>
+        </tr>
+    </tbody>
 </table>
 ```
 
@@ -188,10 +197,9 @@ This is the DOM tree!
 
 ## Moving On
 
-Run `learn` from the command line. If the test pass, enter `learn
-submit`. You'll then be prompted to move on. If you are working in the 
+Run `learn` from the command line. If the test pass, enter `learn submit`. You'll then be prompted to move on. If you are working in the
 in-browser IDE, you can end the `httpserver` server by typing
-Control + C. 
+Control + C.
 
 ## Conclusion
 
@@ -201,8 +209,8 @@ Finally, we practiced working directly with the DOM.
 
 ## Resources
 
-- [HTML Block Elements][html-block-elements]
-- [HTML Inline Elements][html-inline-elements]
+-   [HTML Block Elements][html-block-elements]
+-   [HTML Inline Elements][html-inline-elements]
 
 [html-block-elements]: https://developer.mozilla.org/en/docs/Web/HTML/Block-level_elements
 [html-inline-elements]: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements
